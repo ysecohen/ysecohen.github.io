@@ -29,8 +29,8 @@ body {
 }
 
 h1 {
-  font-size: 40px;
-  color: rgb(149, 37, 55);
+  font-size: 35px; /* test */
+  color: rgb(219, 8, 107);
   text-align: center;
 }
 
