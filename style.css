@@ -1,0 +1,585 @@
+/* ——— POLICE ——— */
+@font-face {
+  font-family: 'CrozetTE';
+  src: url('fonts/Crozet-Regular.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+.banner-projets {
+    font-family: "Helvetica", sans-serif; /* ou la police que tu veux */
+    font-size: 60px; /* optionnel : change la taille */
+    font-weight: 700; /* optionnel : épaisseur */
+}
+
+/* ——— PAGE ——— */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* empêche le scroll inutile */
+}
+/* Conteneur hero plein écran */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centre verticalement */
+    align-items: center;     /* centre horizontalement */
+    background: url('toutes-les-images/image-3.jpg') center/cover no-repeat;
+}
+
+/* Titre centré */
+.titre-hero {
+    font-family: 'CrozetTE', sans-serif;
+    font-size: clamp(50px, 12vw, 100px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px; /* espace entre le titre et le menu */
+}
+
+/* Menu horizontal sous le titre */
+.menu-hero ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 40px;
+}
+
+.menu-item {
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+}
+
+/* Sous-menu caché */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;  /* directement sous le menu parent */
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    padding: 10px 20px;
+    border-radius: 8px;
+    min-width: 220px;
+    z-index: 100;
+    flex-direction: column;
+}
+
+/* Items du sous-menu */
+.submenu li {
+    color: white;
+    padding: 6px 0;
+    white-space: nowrap;
+}
+
+/* Toggle + signe */
+.toggle {
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* Affichage au clic via JS */
+.submenu.open {
+    display: flex;
+}
+
+
+/* Affichage au survol */
+.texte-droite:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ——— HERO ——— */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* plein écran */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ——— SLIDER ——— */
+.slider-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: slideAnimation 12s infinite;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+
+@keyframes slideAnimation {
+  0% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ——— CONTACT EN HAUT À DROITE ——— */
+.texte-droite {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 1.5rem;
+  z-index: 3;
+}
+
+/* ——— TITRE ——— */
+.titre-hero {
+  position: relative;
+  z-index: 2;
+  font-family: 'CrozetTE';
+  font-size: clamp(50px, 12vw, 100px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
+  background: linear-gradient(
+    50deg,
+    #ff1db4,
+    #ffec1c
+
+
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ——— LIEN DU TITRE (pour enlever la barre) ——— */
+.titre-hero a {
+  text-decoration: none;
+  color: inherit;
+
+
+}
+  /* ——— BANNIÈRE PROJETS ——— */
+.banner-projets {
+    /* Styles de base pour la bannière */
+    padding: 20px 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.banner-projets {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    background: white transparent;
+    backdrop-filter: blur(8px);
+}
+
+.banner-projets a {
+    font-family: 'CrozetTE';
+    font-size: clamp(30px, 8vw, 60px);
+    position: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: block;
+
+    background: linear-gradient(
+        50deg,
+        #ff1db4,
+        #feeb12
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+} /* ⭐️ cette accolade manquait ! */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- 0. Styles de Défilement (Body) ---- */
+body {
+    overflow-y: scroll; 
+    min-height: 100vh; 
+}
+
+/* header container : important position:relative pour position absolute de contact */
+.banner-projets {
+  position: relative;
+  height: 40vh;        /* adapte la hauteur */
+  min-height: 240px;
+  width: 100%;
+  display: block;
+  background: transparent;
+}
+
+/* titre centré */
+.titre-projets {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: 'CrozetTE', sans-serif;
+  font-size: clamp(36px, 8vw, 72px);
+  background: linear-gradient(50deg, #ff1db4, #feeb12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 2;
+}
+
+/* Le conteneur qui maintient le bouton et le menu ensemble */
+.contact-wrapper {
+    position: absolute; 
+    top: 25px;
+    right: 30px;
+    z-index: 2000;
+}
+
+/* Le menu déroulant (caché par défaut) */
+.contact-menu {
+    position: absolute;
+    top: 100%; /* S'aligne juste sous le bouton Contact */
+    right: 0;  /* Aligne le menu à droite du bouton */
+    
+    /* Styles visuels (utilisez vos couleurs/flou) */
+    background: rgba(0, 0, 0, 0.85); /* Fond sombre */
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    padding: 10px 16px;
+    list-style: none;
+    margin: 0;
+    
+/* 🔑 CLÉ : Quand la souris est sur le conteneur parent, le menu enfant s'affiche */
+.contact-wrapper:hover .contact-menu {
+    display: block; /* Rendre le menu visible */
+}
+}
+
+/* Styles pour les liens à l'intérieur du menu */
+.contact-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 6px 0;
+    white-space: nowrap; /* Empêche le texte de se couper */
+}
+    /* CLÉ 2 : Quand l'utilisateur survole le conteneur, afficher le menu. */
+.contact-wrapper:hover .contact-menu {
+    display: block;
+/* 1. Remplacer display: none; par ces règles dans .contact-menu */
+.contact-menu {
+    /* ... (Gardez le position: absolute, top: 100%, right: 0) ... */
+    
+    opacity: 0; /* Totalement invisible au départ */
+    pointer-events: none; /* Le menu ne bloque pas le clic s'il est invisible */
+    transition: opacity 0.3s ease-out; /* Ajoute l'effet d'apparition */
+}
+
+/* 2. Remplacer display: block; par ces règles dans .contact-wrapper:hover .contact-menu */
+.contact-wrapper:hover .contact-menu {
+    opacity: 1; /* Rendre visible */
+    pointer-events: auto; /* Permet de cliquer sur les liens */
+}
+}
+
+.banner-projets {
+    position: sticky;   /* reste collé en haut lors du scroll */
+    top: 0;             /* distance du haut de la page */
+    z-index: 50;      /* toujours au-dessus du contenu */
+    background: transparent; /* semi-transparent si tu veux un effet flou */
+    backdrop-filter: blur(6px);   /* flou de fond pour lisibilité */
+    width: 10%;
+    padding: 50px 40px;
+    height: 20px; /* ou vh pour responsive : 20vh */
+}
+.banner-projets {
+    position: sticky; /* ou fixed */
+    top: 0;
+    width: 100%;
+    padding: 40px 60px;
+}
+
+/* Si tu veux garder le titre centré */
+.titre-projets {
+    margin: 0 auto;
+    text-align: center;
+    font-size: clamp(36px, 8vw, 72px);
+}
+
+
+/* ---- 1. Conteneur Principal (Grille 2 Colonnes) ---- */
+.gallery {
+    display: grid; 
+    /* Crée deux colonnes de largeur égale */
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    width: 90%;
+    max-width: 1200px; 
+    margin: 60px auto; 
+}
+.galerie {
+    display: flex;
+    justify-content: center;
+    gap: 48px;     /* ← écart EXACT comme dans ton exemple */
+}
+
+.galerie img {
+    width: 28%;     /* 3 images + gap = une ligne équilibrée */
+    height: auto;
+    object-fit: cover;
+}
+
+/* ---- 2. Conteneur de Chaque Projet (.item) ---- */
+.item {
+    position: relative;
+    overflow: hidden; 
+    border-radius: 12px;
+}
+
+/* ---- 3. Styles des Images ---- */
+.item img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+/* ---- 4. Titre Overlay (Masqué par défaut) ---- */
+.overlay-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    z-index: 10; 
+}
+
+/* ---- 5. Effet au Survol (Hover) ---- */
+.item:hover img {
+    transform: scale(1.08); /* Zoom de l'image */
+}
+
+.item:hover .overlay-title {
+    opacity: 1; /* Affichage du titre */
+}
+/* Le conteneur du bouton Contact */
+.contact-wrapper {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    z-index: 20;
+}
+
+/* Le bouton Contact */
+.contact-btn {
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Si vous utilisez la méthode d'opacité pour la fluidité */
+.contact-menu {
+    /* ... */
+    opacity: 0; 
+    pointer-events: none; /* TRÈS IMPORTANT : Empêche l'interaction quand c'est invisible */
+    transition: opacity 0.3s ease-out; 
+}
+
+.contact-wrapper:hover .contact-menu {
+    opacity: 1; 
+    pointer-events: auto; /* Permet l'interaction quand c'est visible */
+}
+
+/* Quand c’est ouvert */
+.contact-menu.open {
+    opacity: 1;
+    max-height: 200px;
+    padding: 12px 16px;
+}
+
+.contact-menu li {
+    color: white;
+    padding: 6px 0;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+/* ---- 6. Positionnement Spécifique (Sérigraphie) ---- */
+#serigraphie-item {
+    /* Place cet élément dans la colonne de droite */
+    grid-column: 2 / 3; 
+}
+#titre {
+  color: #8f00ff; /* couleur par défaut */
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Pastille de couleur */
+#pastille {
+  width: 30px;
+  height: 30px;
+  background: #8f00ff, blue, red;/* même couleur par défaut */
+  border-radius: 50%;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+img {
+  display: block;
+  margin: 0 auto; /* centre horizontalement */
+}
+.couverture {
+  background-image: url("ton-image.jpg");
+  background-size: cover;       /* couvre tout l’écran */
+  background-position: center;  /* centre l’image */
+  background-repeat: no-repeat; /* évite les répétitions */
+  height: 100vh; /* ou la taille que tu veux */
+}
+.menu-hero ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* menu horizontal */
+  gap: 20px;
+}
+
+/* --- Menu principal --- */
+.menu-principal {
+  list-style: none;
+  margin: 0;
+  padding: 20px 30px;       /* padding top pour être en haut de la page */
+  display: flex;
+  justify-content: flex-start; /* About à gauche par défaut */
+  gap: 40px;
+  position: relative;
+  background: transparent; /* ou semi-transparent si tu veux un overlay */
+}
+
+.contact-top-right {
+  position: fixed;   /* reste collé même en scrollant */
+  top: 20px;         /* distance depuis le haut */
+  right: 20px;       /* distance depuis la droite */
+  font-size: 18px;
+  color: rgb(0, 0, 0);      /* adapte selon ton design */
+  text-decoration: none;
+  z-index: 2000;     /* toujours visible au-dessus du reste */
+}
+.menu-item {
+  position: relative;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.submenu li {
+  color: white;
+  white-space: nowrap;
+  margin: 5px 0;
+} /* <-- FERMETURE DU BLOC .submenu li AJOUTÉE ICI */
+
+.ligne {
+    display: flex;
+    gap: 59px; /* ← règle EXACTEMENT l’écart */
+}
+
+.ligne img {
+    width: 30%; /* ajuste si nécessaire */
+    height: auto;
+}
+
+.texte {
+    text-align: center;
+} /* <-- Ce bloc était déjà correct, mais tous les blocs doivent être fermés */
+.conteneur-avec-texte {
+    position: relative; /* Indispensable pour positionner le pseudo-élément */
+    z-index: 1; /* S'assurer que le contenu est au-dessus du background */
+}
+/* Conteneur principal (le body doit être relatif pour que le before soit positionné) */
+
+/* 1. Préparation du Body */
+body {
+    position: relative;
+    /* Assurez-vous qu'il n'y a pas de marges par défaut qui empêchent le fond de couvrir 100% */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Création de l'image de fond transparente sur TOUTE la page */
+body:before {
+    content: '';
+    /* Position fixed fait que l'image couvre toujours la fenêtre de visualisation */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Définir l'image NUAGE1.JPG */
+    background-image: url('toutes-les-images/NUAGE1.JPG');
+    
+    /* S'assurer que l'image couvre TOUTE la zone, sans déformation */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    /* Appliquer la transparence */
+    opacity: 0.3; /* Ajustez cette valeur (0.0 à 1.0) */
+    
+    /* Placer le background SOUS tout le contenu de la page */
+    z-index: -1; 
+}
